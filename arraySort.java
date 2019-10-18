@@ -33,6 +33,17 @@ public class question2 {
             System.out.println(Arrays.toString(row));
         }
     }
+    static void search(int w){
+        for (int i = 0; i < 4;i++) {
+            for (int j = 0; j < 4; j++) {
+                if (w == arr[i][j]) {
+                    System.out.println("True");
+                    System.out.println("Element " + w + " is present at " + (i + 1) + "th row and " + (j + 1) + "th column");
+                    break;
+                }
+            }
+        }
+    }
     public static void main(String[] args) {
         arr[0][0] = 45;
         arr[0][1] = 99;
@@ -52,12 +63,30 @@ public class question2 {
         arr[3][3] = 0;
         System.out.println("Given Array is:");
         print2D();
+        while (true) {
+            System.out.println("1. Sort the Array");
+            System.out.println("2. Search in the Array");
+            Scanner sc = new Scanner(System.in);
+            int q = sc.nextInt();
+            if (q == 1) {
+                vertBubbleSort();
+                horBubbleSort();
+                print2D();
+                System.out.println("Array Sorted");
+            } else if (q == 2) {
+                System.out.println("Enter the element to be searched:");
+                int e = sc.nextInt();
+                search(e);
+            } else
+                System.out.println("Wrong Input");
+            System.out.println("Enter 1 to continue, anything else to terminate.");
+            int e = sc.nextInt();
+            if (e !=1) {
+                System.out.println("Terminated");
+                break;
+            }
 
-        vertBubbleSort();
-        horBubbleSort();
-        print2D();
-        System.out.println("Array Sorted");
-
+        }
     }
 
 
